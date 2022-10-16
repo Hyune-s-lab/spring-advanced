@@ -11,7 +11,8 @@ class HelloTraceV1 {
     fun begin(message: String?): TraceStatus {
         val traceId = TraceId()
         val startTimeMs = System.currentTimeMillis()
-        log.info("[{}] {}{}", traceId.id, addSpace(START_PREFIX, traceId.level), message);
+        val content = addSpace(START_PREFIX, traceId.level)
+        log.info("[${traceId.id}] ${content}${message}")
         return TraceStatus(traceId, startTimeMs, message)
     }
 
@@ -24,22 +25,11 @@ class HelloTraceV1 {
         val traceId = status.traceId
 
         if (e == null) {
-            log.info(
-                "[{}] {}{} time={}ms",
-                traceId.id,
-                addSpace(COMPLETE_PREFIX, traceId.level),
-                status.message,
-                resultTimeMs
-            );
+            val content = addSpace(COMPLETE_PREFIX, traceId.level)
+            log.info("[${traceId.id}] ${content}${status.message} time=${resultTimeMs}ms")
         } else {
-            log.info(
-                "[{}] {}{} time={}ms ex={}",
-                traceId.id,
-                addSpace(EX_PREFIX, traceId.level),
-                status.message,
-                resultTimeMs,
-                e.toString()
-            );
+            val content = addSpace(EX_PREFIX, traceId.level)
+            log.info("[${traceId.id}] ${content}${status.message} time=${resultTimeMs}ms ex=${e.toString()}")
         }
     }
 
