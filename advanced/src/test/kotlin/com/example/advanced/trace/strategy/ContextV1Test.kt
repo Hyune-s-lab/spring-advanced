@@ -70,6 +70,31 @@ class ContextV1Test {
         context2.execute()
     }
 
+    @Test
+    fun strategyV3() {
+        val context1 = ContextV1(object : Strategy {
+            override fun call() {
+                log.info("비즈니스 로직1 실행")
+            }
+        })
+        context1.execute()
+        val context2 = ContextV1(object : Strategy {
+            override fun call() {
+                log.info("비즈니스 로직2 실행")
+            }
+        })
+        context2.execute()
+    }
+
+//    @Test
+//    fun strategyV4() {
+//        val context1 = ContextV1({ log.info("비즈니스 로직1 실행") })
+//        context1.execute()
+//
+//        val context2 = ContextV1({ log.info("비즈니스 로직2 실행") })
+//        context2.execute()
+//    }
+
     companion object {
         val log: Logger = LoggerFactory.getLogger(this::class.java)
     }
