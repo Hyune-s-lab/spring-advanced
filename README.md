@@ -6,3 +6,7 @@
 
 - logging
 - ThreadLocal
+- Design Pattern
+    - Template Method
+    - Strategy
+    - Template Callback
