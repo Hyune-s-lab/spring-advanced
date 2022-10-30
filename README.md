@@ -13,4 +13,6 @@
 
 ### proxy
 
-- proxy
+- Design Pattern
+    - proxy
+    - decorator
