@@ -2,10 +2,10 @@ package com.example.proxy.pureproxy.decorator
 
 import com.example.proxy.pureproxy.decorator.code.Component
 import com.example.proxy.pureproxy.decorator.code.DecoratorPatternClient
+import com.example.proxy.pureproxy.decorator.code.MessageDecorator
 import com.example.proxy.pureproxy.decorator.code.RealComponent
+import com.example.proxy.pureproxy.decorator.code.TimeDecorator
 import org.junit.jupiter.api.Test
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 class DecoratorPatternTest {
     @Test
@@ -15,7 +15,20 @@ class DecoratorPatternTest {
         client.execute()
     }
 
-    companion object {
-        val log: Logger = LoggerFactory.getLogger(this::class.java)
+    @Test
+    fun decorator1() {
+        val realComponent: Component = RealComponent()
+        val messageDecorator: Component = MessageDecorator(realComponent)
+        val client = DecoratorPatternClient(messageDecorator)
+        client.execute()
+    }
+
+    @Test
+    fun decorator2() {
+        val realComponent: Component = RealComponent()
+        val messageDecorator: Component = MessageDecorator(realComponent)
+        val timeDecorator: Component = TimeDecorator(messageDecorator)
+        val client = DecoratorPatternClient(timeDecorator)
+        client.execute()
     }
 }
