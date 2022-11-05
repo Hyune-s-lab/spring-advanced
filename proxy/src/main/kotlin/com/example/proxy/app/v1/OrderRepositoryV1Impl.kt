@@ -1,6 +1,6 @@
 package com.example.proxy.app.v1
 
-class OrderRepositoryV1Impl : OrderRepositoryV1 {
+open class OrderRepositoryV1Impl : OrderRepositoryV1 {
     override fun save(itemId: String) {
         //저장 로직
         check(itemId != "ex") { "예외 발생!" }
