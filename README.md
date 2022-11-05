@@ -16,3 +16,5 @@
 - Design Pattern
     - proxy
     - decorator
+- Dynamic Proxy
+  - jdk dynamic
