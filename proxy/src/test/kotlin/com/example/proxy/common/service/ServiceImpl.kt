@@ -3,7 +3,7 @@ package com.example.proxy.common.service
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class ServiceImpl : ServiceInterface {
+open class ServiceImpl : ServiceInterface {
     override fun save() {
         log.info("save 호출")
     }

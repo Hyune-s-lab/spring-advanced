@@ -3,7 +3,7 @@ package com.example.proxy.common.service
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class ConcreteService {
+open class ConcreteService {
     fun call() {
         log.info("ConcreteService 호출")
     }
