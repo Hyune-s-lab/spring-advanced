@@ -2,6 +2,7 @@ package com.example.aop
 
 import com.example.aop.order.OrderRepository
 import com.example.aop.order.OrderService
+import com.example.aop.order.aop.AspectV1
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
@@ -9,7 +10,9 @@ import org.slf4j.LoggerFactory
 import org.springframework.aop.support.AopUtils
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.context.annotation.Import
 
+@Import(AspectV1::class)
 @SpringBootTest
 class AopTest {
     @Autowired
