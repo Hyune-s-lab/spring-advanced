@@ -2,7 +2,7 @@ package com.example.aop
 
 import com.example.aop.order.OrderRepository
 import com.example.aop.order.OrderService
-import com.example.aop.order.aop.AspectV2
+import com.example.aop.order.aop.AspectV3
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
@@ -13,7 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Import
 
 //@Import(AspectV1::class)
-@Import(AspectV2::class)
+//@Import(AspectV2::class)
+@Import(AspectV3::class)
 @SpringBootTest
 class AopTest {
     @Autowired
